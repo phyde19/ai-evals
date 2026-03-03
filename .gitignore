@@ -6,10 +6,10 @@ mlflow/
 .env.local
 
 # Python
+.venv/
 __pycache__/
 *.py[cod]
 *.pyo
-.venv/
 venv/
 env/
 *.egg-info/
