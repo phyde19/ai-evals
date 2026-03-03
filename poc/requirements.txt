@@ -1,5 +1,4 @@
 fastapi>=0.115.0
 uvicorn[standard]>=0.30.0
 python-dotenv>=1.0.0
-# MLflow (only needed when MLFLOW_ENABLED=true)
-# mlflow[databricks]>=3.1.0
+mlflow-tracing

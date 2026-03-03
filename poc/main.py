@@ -723,8 +723,8 @@ _HTML = """<!DOCTYPE html>
     const downBtn = document.getElementById(`down-${traceId}`);
     const status  = document.getElementById(`fstatus-${traceId}`);
 
-    upBtn.disabled   = true;
-    downBtn.disabled = true;
+    upBtn.classList.remove('voted-up');
+    downBtn.classList.remove('voted-down');
     if (thumbsUp) upBtn.classList.add('voted-up');
     else          downBtn.classList.add('voted-down');
 
@@ -738,8 +738,6 @@ _HTML = """<!DOCTYPE html>
       status.textContent = data.status;
     } catch (e) {
       status.textContent = '⚠️ error';
-      upBtn.disabled   = false;
-      downBtn.disabled = false;
     }
   }
 
