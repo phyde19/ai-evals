@@ -12,9 +12,7 @@ Environment variables:
   DATABRICKS_TOKEN=...           Required when MLFLOW_ENABLED=true
 
 Run:
-  uvicorn main:app --reload --port 8000
-  open http://localhost:8000        ← chat UI
-  open http://localhost:8000/docs   ← Swagger UI
+  make start
 """
 
 import logging
@@ -22,7 +20,10 @@ import os
 import uuid
 from typing import Optional
 
+from dotenv import load_dotenv
 from fastapi import FastAPI
+
+load_dotenv()
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 
@@ -323,6 +324,11 @@ def serve_ui():
 
 
 # ─── Embedded UI ──────────────────────────────────────────────────────────────
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="127.0.0.1", port=int(os.getenv("PORT", "8001")), reload=True)
+
 
 _HTML = """<!DOCTYPE html>
 <html lang="en">
